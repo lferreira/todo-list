@@ -1,11 +1,13 @@
 var todo = { 
 	init: function() {
-		$('#add').click(function() {
-			if (todo.add()) {
-				todo.clear();
-				todo.checkbox();
+		$('#description').keypress(function(e) {
+			if (e.keyCode == 13) {
+				if (todo.add()) {
+					todo.clear();
+					todo.checkbox();
+				}
+				e.preventDefault();
 			}
-			return false;
 		});
 	},
 	add: function() {
